@@ -50,6 +50,17 @@ The following Kubernetes versions are supported and work as we test against thes
 
 ## Quickstart
 
+### Install 
+
+```shell
+kubectl apply --server-side -f manifests/setup
+kubectl wait \
+        --for condition=Established \
+        --all CustomResourceDefinition \
+        --namespace=monitoring
+kubectl apply -f manifests/
+```
+
 > Note: For versions before Kubernetes v1.21.z refer to the [Kubernetes compatibility matrix](#compatibility) in order to choose a compatible branch.
 
 This project is intended to be used as a library (i.e. the intent is not for you to create your own modified copy of this repository).
